@@ -17,3 +17,4 @@
 - [Triangle Type Identification Alternative](./triangle_type_identification_alternative/README.md)
 - [Vowel Start End No Duplicates](./vowel_start_end_no_duplicates/README.md)
 - [Window Functions](./window_functions/README.md)
+- [Joins](./joins/README.md)
