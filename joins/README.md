@@ -21,3 +21,25 @@ The `INTO` clause is useful when you want to create a new table based on the res
 It's worth noting that the `INTO` clause is not supported by all database systems, and the syntax may vary depending on the system you are using. In some systems, you may need to use a different syntax, such as `CREATE TABLE AS SELECT` or `SELECT ... INTO OUTFILE`.
 
 ## [Example](./into.sql)
+
+In SQL, there are several types of queries and operations you can perform to combine or compare data from different tables. Here's an explanation of each of the mentioned operations:
+
+# EXCEPT:
+The EXCEPT operator is used to retrieve all distinct rows from one table (the left table) that do not exist in another table (the right table). It effectively subtracts the rows in the right table from the left table, returning the unique rows from the left table that are not present in the right table.
+## [Example](./except.sql)
+
+# INTERSECT:
+The INTERSECT operator is used to retrieve all distinct rows that exist in both of two tables. It returns the common rows between two tables, eliminating duplicates.
+## [Example](./intersect.sql)
+
+# ANTI JOIN:
+The term "anti-join" is not a standard SQL operator. However, it typically refers to a query where you want to retrieve rows from one table that have no matching rows in another table. This can be achieved using the NOT EXISTS or LEFT JOIN with a NULL check.
+## [Example](./anti-join.sql)
+
+# SEMI JOIN:
+A semi-join is an operation that returns rows from one table for which there is a matching row in another table but does not actually return the matching rows from the second table. SQL does not have a built-in SEMI JOIN operator, but you can achieve it using EXISTS or IN subqueries.
+## [Example](./semi-join.sql)
+
+# UNION:
+The UNION operator is used to combine the result sets of two or more SELECT statements into a single result set. It removes duplicates by default (use UNION ALL to include duplicates).
+## [Example](./union.sql)
