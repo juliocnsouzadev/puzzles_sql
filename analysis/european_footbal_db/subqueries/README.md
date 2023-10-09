@@ -24,3 +24,28 @@ In addition to filtering using a single-value (scalar) subquery, you can create 
 2. 
     - Create a subquery in WHERE clause that retrieves all hometeam_ID values from match with a home_goal score greater than or equal to 8.
     - Select the team_long_name and team_short_name from the team table. Include all values from the subquery in the main query.
+
+##  Subqueries in From clause
+
+The match table in the European Soccer Database does not contain country or team names. You can get this information by joining it to the country table, and use this to aggregate information, such as the number of matches played in each country.
+
+If you're interested in filtering data from one of these tables, you can also create a subquery from one of the tables, and then join it to an existing table in the database. A subquery in FROM is an effective way of answering detailed questions that requires filtering or transforming data before including it in your final results.
+
+1. Your goal in this exercise is to generate a subquery using the match table, and then join that subquery to the country table to calculate information about matches with 10 or more goals in total!
+
+    - Create the subquery to be used in the next step, which selects the country ID and match ID (id) from the match table.
+    - Filter the query for matches with greater than or equal to 10 goals.
+
+2. 
+    - Construct a subquery that selects only matches with 10 or more total goals.
+    - Inner join the subquery onto country in the main query.
+    - Select name from country and count the id column from match.
+
+
+3. 
+    - Complete the subquery inside the FROM clause. Select the country name from the country table, along with the date, the home goal, the away goal, and the total goals columns from the match table.
+    - Create a column in the subquery that adds home and away goals, called total_goals. This will be used to filter the main query.
+    - Select the country, date, home goals, and away goals in the main query.
+    - Filter the main query for games with 10 or more total goals.
+
+    

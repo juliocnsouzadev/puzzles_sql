@@ -37,3 +37,39 @@ WHERE team_api_id IN
 	  (SELECT hometeam_id 
        FROM match
        WHERE home_goal >= 8);
+
+-- Subqueries in From clause
+-- 1
+SELECT 
+	country_id, 
+    id 
+FROM match
+WHERE (home_goal + away_goal) >= 10;
+
+-- 2
+SELECT
+	name AS country_name,
+    COUNT(sub.id) AS matches
+FROM country AS c
+INNER JOIN (SELECT country_id, id 
+           FROM match
+           WHERE (home_goal + away_goal) >= 10) AS sub
+ON c.id = sub.country_id
+GROUP BY country_name;
+
+-- 2
+SELECT
+	country,
+    date,
+    home_goal,
+    away_goal
+FROM 
+	(SELECT c.name AS country, 
+     	    m.date, 
+     		m.home_goal, 
+     		m.away_goal,
+           (m.home_goal + m.away_goal) AS total_goals
+    FROM match AS m
+    LEFT JOIN country AS c
+    ON m.country_id = c.id) AS subq
+WHERE total_goals >= 10;
