@@ -49,3 +49,17 @@ If you're interested in filtering data from one of these tables, you can also cr
     - Filter the main query for games with 10 or more total goals.
 
     
+## Subqueries in Select clause
+Subqueries in SELECT statements generate a single value that allow you to pass an aggregate value down a data frame. This is useful for performing calculations on data within your database.
+
+1. 
+    - In the subquery, select the average total goals by adding home_goal and away_goal.
+    - Filter the results so that only the average of goals in the 2013/2014 season is calculated.
+    - In the main query, select the average total goals by adding home_goal and away_goal. This calculates the average goals for each league.
+    - Filter the results in the main query the same way you filtered the subquery. Group the query by the league name.
+
+2. 
+    - Select the average goals scored in a match for each league in the main query.
+    - Select the average goals scored in a match overall for the 2013/2014 season in the subquery.
+    - Subtract the subquery from the average number of goals calculated for each league.
+    - Filter the main query so that only games from the 2013/2014 season are included.
