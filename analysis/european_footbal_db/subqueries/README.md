@@ -63,3 +63,5 @@ Subqueries in SELECT statements generate a single value that allow you to pass a
     - Select the average goals scored in a match overall for the 2013/2014 season in the subquery.
     - Subtract the subquery from the average number of goals calculated for each league.
     - Filter the main query so that only games from the 2013/2014 season are included.
+
+## Add a subquery in SELECT
