@@ -65,3 +65,12 @@ Subqueries in SELECT statements generate a single value that allow you to pass a
     - Filter the main query so that only games from the 2013/2014 season are included.
 
 ## Add a subquery in SELECT
+
+## Basic Correlated Subqueries
+Correlated subqueries are subqueries that reference one or more columns in the main query. Correlated subqueries depend on information in the main query to run, and thus, cannot be executed on their own.
+
+Correlated subqueries are evaluated in SQL once per row of data retrieved -- a process that takes a lot more computing power and time than a simple subquery.
+
+1. Select the country_id, date, home_goal, and away_goal columns in the main query.
+Complete the AVG value in the subquery.
+Complete the subquery column references, so that country_id is matched in the main and subquery.
