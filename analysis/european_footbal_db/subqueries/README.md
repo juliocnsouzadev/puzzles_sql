@@ -71,9 +71,10 @@ Correlated subqueries are subqueries that reference one or more columns in the m
 
 Correlated subqueries are evaluated in SQL once per row of data retrieved -- a process that takes a lot more computing power and time than a simple subquery.
 
-1. Select the country_id, date, home_goal, and away_goal columns in the main query.
-Complete the AVG value in the subquery.
-Complete the subquery column references, so that country_id is matched in the main and subquery.
+1.
+  - Select the country_id, date, home_goal, and away_goal columns in the main query.
+  - Complete the AVG value in the subquery.
+  - Complete the subquery column references, so that country_id is matched in the main and subquery.
 
 ## Correlated subquery with multiple conditions
 Correlated subqueries are useful for matching data across multiple columns. In the previous exercise, you generated a list of matches with extremely high scores for each country. In this exercise, you're going to add an additional column for matching to answer the question -- what was the highest scoring match for each country, in each season?
@@ -83,3 +84,14 @@ Correlated subqueries are useful for matching data across multiple columns. In t
   - Complete the subquery: Select the matches with the highest number of total goals.
   - Match the subquery to the main query using country_id and season.
   - Fill in the correct logical operator so that total goals equals the max goals recorded in the subquery.
+
+## Nasted Subqueries
+Nested subqueries can be either simple or correlated.
+Just like an unnested subquery, a nested subquery's components can be executed independently of the outer query, while a correlated subquery requires both the outer and inner subquery to run and produce results.
+In this exercise, you will practice creating a nested subquery to examine the highest total number of goals in each season, overall, and during July across all seasons.
+
+1.
+  - Complete the main query to select the season and the max total goals in a match for each season. Name this max_goals.
+  - Complete the first simple subquery to select the max total goals in a match across all seasons. Name this overall_max_goals.
+  - Complete the nested subquery to select the maximum total goals in a match played in July across all seasons.
+  - Select the maximum total goals in the outer subquery. Name this entire subquery july_max_goals.
