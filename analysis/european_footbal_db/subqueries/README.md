@@ -4,10 +4,10 @@
 
 Generate a list of matches where the total goals scored (for both teams in total) is more than 3 times the average for games in the matches_2013_2014 table, which includes all games played in the 2013/2014 season.
 
-1. 
+1.
     - Calculate triple the average home + away goals scored across all matches. This will become your subquery in the next step. Note that this column does not have an alias, so it will be called ?column? in your results.
 
-2. 
+2.
     - Select the date, home goals, and away goals in the main query.
     - Filter the main query for matches where the total goals scored exceed the value in the subquery.
 
@@ -17,11 +17,11 @@ Generate a list of teams that never played a game in their home city. Using a su
 
 In addition to filtering using a single-value (scalar) subquery, you can create a list of values in a subquery to filter data based on a complex set of conditions. This type of subquery generates a one column reference list for the main query. As long as the values in your list match a column in your main query's table, you don't need to use a join -- even if the list is from a separate table.
 
-1. 
+1.
     - Create a subquery in the WHERE clause that retrieves all unique hometeam_ID values from the match table.
     - Select the team_long_name and team_short_name from the team table. Exclude all values from the subquery in the main query.
 
-2. 
+2.
     - Create a subquery in WHERE clause that retrieves all hometeam_ID values from match with a home_goal score greater than or equal to 8.
     - Select the team_long_name and team_short_name from the team table. Include all values from the subquery in the main query.
 
@@ -36,29 +36,29 @@ If you're interested in filtering data from one of these tables, you can also cr
     - Create the subquery to be used in the next step, which selects the country ID and match ID (id) from the match table.
     - Filter the query for matches with greater than or equal to 10 goals.
 
-2. 
+2.
     - Construct a subquery that selects only matches with 10 or more total goals.
     - Inner join the subquery onto country in the main query.
     - Select name from country and count the id column from match.
 
 
-3. 
+3.
     - Complete the subquery inside the FROM clause. Select the country name from the country table, along with the date, the home goal, the away goal, and the total goals columns from the match table.
     - Create a column in the subquery that adds home and away goals, called total_goals. This will be used to filter the main query.
     - Select the country, date, home goals, and away goals in the main query.
     - Filter the main query for games with 10 or more total goals.
 
-    
+
 ## Subqueries in Select clause
 Subqueries in SELECT statements generate a single value that allow you to pass an aggregate value down a data frame. This is useful for performing calculations on data within your database.
 
-1. 
+1.
     - In the subquery, select the average total goals by adding home_goal and away_goal.
     - Filter the results so that only the average of goals in the 2013/2014 season is calculated.
     - In the main query, select the average total goals by adding home_goal and away_goal. This calculates the average goals for each league.
     - Filter the results in the main query the same way you filtered the subquery. Group the query by the league name.
 
-2. 
+2.
     - Select the average goals scored in a match for each league in the main query.
     - Select the average goals scored in a match overall for the 2013/2014 season in the subquery.
     - Subtract the subquery from the average number of goals calculated for each league.
@@ -74,3 +74,12 @@ Correlated subqueries are evaluated in SQL once per row of data retrieved -- a p
 1. Select the country_id, date, home_goal, and away_goal columns in the main query.
 Complete the AVG value in the subquery.
 Complete the subquery column references, so that country_id is matched in the main and subquery.
+
+## Correlated subquery with multiple conditions
+Correlated subqueries are useful for matching data across multiple columns. In the previous exercise, you generated a list of matches with extremely high scores for each country. In this exercise, you're going to add an additional column for matching to answer the question -- what was the highest scoring match for each country, in each season?
+
+1.
+  - Select the country_id, date, home_goal, and away_goal columns in the main query.
+  - Complete the subquery: Select the matches with the highest number of total goals.
+  - Match the subquery to the main query using country_id and season.
+  - Fill in the correct logical operator so that total goals equals the max goals recorded in the subquery.
